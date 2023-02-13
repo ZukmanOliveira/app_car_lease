@@ -10,5 +10,7 @@ class Carro extends Model
     use HasFactory;
     protected $fillable = ['modelo_id, placa, disponivel, km'];
 
-
+    public function modelo(){
+        return $this->belongsTo('App\Models\Carro', 'modelo_id', 'id');
+    }
 }

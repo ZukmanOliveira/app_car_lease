@@ -19,7 +19,7 @@ class CreateLocacoesTable extends Migration
             $table->integer('km_inicial');
             $table->integer('km_final');
             $table->timestamps();
-            // foreign key (constraints)
+            //foreign key (constraints)
             $table->foreign('cliente_id')->references('id')->on('clientes');
             $table->foreign('carro_id')->references('id')->on('carros');
         });
