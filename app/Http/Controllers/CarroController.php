@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Storage;
 use App\Models\Carro;
 use Illuminate\Http\Request;
-use App\Http\Requests\CarroStoreRequest;
-use App\Http\Repositories\CarroRepository;
+use App\Http\Requests\CarroStoreRequests;
+use App\Repositories\CarroRepository;
 
 class CarroController extends Controller
 {
@@ -20,13 +21,13 @@ class CarroController extends Controller
      */
     public function index(Request $request)
     {
-        $marcaRepository = new MarcaRepository($this->marca); 
+        $carroRepository = new CarroRepository($this->carro); 
 
         if($request->has('atributos_modelo')){
             $atributos_modelo = 'modelo:id'.$request->atributos_modelo;
-            $carroRepository->selectAtributosRigistrosRelacionados($atributos_modelo);
+            $carroRepository->selectAtributosRegistrosRelacionados($atributos_modelo);
         }else{
-            $carroRepository->selectAtributosRegistrosRelacionados('modelo');
+            $carro = $this->carro->with('modelos');
         }
 
         if($request->has('filtro')){
@@ -121,7 +122,7 @@ class CarroController extends Controller
     }
 
     
-    public function destroy(Carro $carro, int $id)
+    public function destroy(int $id)
     {
         $carro = $this->carro->find($id);
 

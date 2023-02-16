@@ -20,8 +20,10 @@ class MarcaController extends Controller
         $marcaRepository = new MarcaRepository($this->marca); 
 
         if($request->has('atributos_modelo')){
+
             $atributos_modelos = 'modelos:id'.$request->atributos_modelos;
-            $marcaRepository->selectAtributosRigistrosRelacionados($atributos_modelos);
+
+            $marcaRepository->selectAtributosRegistrosRelacionados($atributos_modelos);
         }else{
             $marca = $this->marca->with('modelos');
         }
@@ -34,7 +36,7 @@ class MarcaController extends Controller
             $marcaRepository->selectAtributos($request->atributos);
         }
 
-        return response()->json($marcaRepository->getResultado(), 200);
+        return response()->json($marcaRepository->getResultado(), 201);
     }
 
     public function store(Request $request, MarcaStoreRequests $validation)

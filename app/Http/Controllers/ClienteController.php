@@ -14,9 +14,9 @@ class ClienteController extends Controller
         $this->cliente = $cliente;
     }
   
-    public function index(Request $request, ClienteRepository $clienteRepository)
+    public function index(Request $request)
     {
-        $clienteRepository = new clienteRepository($this->carro); 
+        $clienteRepository = new ClienteRepository($this->cliente); 
 
         if($request->has('filtro')){
             $clienteRepository->filtro($request->filtro);

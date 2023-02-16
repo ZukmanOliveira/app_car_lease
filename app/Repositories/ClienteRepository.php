@@ -2,6 +2,9 @@
 
 namespace App\Repositories;
 
-class CarroRepository extends AbstractRepository{
+
+
+class ClienteRepository extends AbstractRepository{
     
 }
+
