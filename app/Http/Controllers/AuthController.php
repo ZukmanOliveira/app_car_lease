@@ -9,13 +9,13 @@ class AuthController extends Controller
     public function login(Request $request)
     {
         $credenciais = $request->all(['email','password']);
-
         $token = auth('api')->attempt($credenciais);
+        
         
         if($token){
             return response()->json(['token' => $token]);
         }else{
-            return response()->json(['erro' => 'Usuario ou senha inválida'],403);
+            return response()->json(['erro' => 'Usuario ou senha inválida'], 403);
         }
     }
 
