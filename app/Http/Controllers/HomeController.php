@@ -11,6 +11,11 @@ class HomeController extends Controller
      *
      * @return void
      */
+
+    public function register()
+    {
+        return 'ola mundo';
+    }
     public function __construct()
     {
         $this->middleware('auth');
