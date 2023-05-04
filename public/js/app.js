@@ -5424,7 +5424,7 @@ var render = function render() {
     staticClass: "card"
   }, [_c("div", {
     staticClass: "card-header"
-  }, [_vm._v("Login (Componente Vue)")]), _vm._v("\n\n                " + _vm._s(_vm.email) + " - " + _vm._s(_vm.password) + "\n\n                "), _c("div", {
+  }, [_vm._v("Login (Componente Vue)")]), _vm._v(" "), _c("div", {
     staticClass: "card-body"
   }, [_c("form", {
     attrs: {

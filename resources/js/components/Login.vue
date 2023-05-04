@@ -6,7 +6,7 @@
                 <div class="card">
                     <div class="card-header">Login (Componente Vue)</div>
 
-                    {{ email}} - {{ password }}
+
 
                     <div class="card-body">
                         <form method="POST" action="" @submit.prevent="login($event)">
